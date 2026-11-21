@@ -42,13 +42,38 @@
   .source { font-size: 12px; color: var(--gray); margin-top: 18px; border-top: 2px solid var(--pale); padding-top: 12px; }
   .links { font-size: 14px; margin-top: 14px; }
   .links a { color: var(--accent-d); }
+
+  /* 見出し（noteの見出し画像と同じ形：左に丸いプードル、右にシリーズ名・タイトル） */
+  body { background-color: var(--bg); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='420' viewBox='0 0 420 420'%3E%3Cg fill='%23e8d6c2'%3E%3Cg transform='translate(60 70) rotate(-20) scale(1.6)'%3E%3Cellipse cx='0' cy='8' rx='13' ry='11'/%3E%3Cellipse cx='-14' cy='-6' rx='5' ry='6'/%3E%3Cellipse cx='-5' cy='-15' rx='5' ry='6'/%3E%3Cellipse cx='5' cy='-15' rx='5' ry='6'/%3E%3Cellipse cx='14' cy='-6' rx='5' ry='6'/%3E%3C/g%3E%3Cg transform='translate(300 40) rotate(10) scale(1.0)'%3E%3Cellipse cx='0' cy='8' rx='13' ry='11'/%3E%3Cellipse cx='-14' cy='-6' rx='5' ry='6'/%3E%3Cellipse cx='-5' cy='-15' rx='5' ry='6'/%3E%3Cellipse cx='5' cy='-15' rx='5' ry='6'/%3E%3Cellipse cx='14' cy='-6' rx='5' ry='6'/%3E%3C/g%3E%3Cg transform='translate(380 230) rotate(25) scale(1.4)'%3E%3Cellipse cx='0' cy='8' rx='13' ry='11'/%3E%3Cellipse cx='-14' cy='-6' rx='5' ry='6'/%3E%3Cellipse cx='-5' cy='-15' rx='5' ry='6'/%3E%3Cellipse cx='5' cy='-15' rx='5' ry='6'/%3E%3Cellipse cx='14' cy='-6' rx='5' ry='6'/%3E%3C/g%3E%3Cg transform='translate(150 300) rotate(-10) scale(1.1)'%3E%3Cellipse cx='0' cy='8' rx='13' ry='11'/%3E%3Cellipse cx='-14' cy='-6' rx='5' ry='6'/%3E%3Cellipse cx='-5' cy='-15' rx='5' ry='6'/%3E%3Cellipse cx='5' cy='-15' rx='5' ry='6'/%3E%3Cellipse cx='14' cy='-6' rx='5' ry='6'/%3E%3C/g%3E%3Cg transform='translate(250 390) rotate(15) scale(0.9)'%3E%3Cellipse cx='0' cy='8' rx='13' ry='11'/%3E%3Cellipse cx='-14' cy='-6' rx='5' ry='6'/%3E%3Cellipse cx='-5' cy='-15' rx='5' ry='6'/%3E%3Cellipse cx='5' cy='-15' rx='5' ry='6'/%3E%3Cellipse cx='14' cy='-6' rx='5' ry='6'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); background-size: 420px 420px; }
+  .hero { display: flex; align-items: center; gap: 18px; margin: -4px 0 22px; }
+  .hero-face { flex: none; width: 118px; height: 118px; border-radius: 50%; background: #efe2d3;
+    border: 4px solid #fff; box-shadow: 0 0 0 4px var(--accent); display: flex; align-items: center; justify-content: center; }
+  .hero-face img { width: 86%; height: auto; }
+  .hero-text { min-width: 0; }
+  .hero-series { margin: 0 0 8px; padding-bottom: 6px; border-bottom: 2px solid var(--accent); color: var(--brown); font-size: 12px; font-weight: 700; }
+  .hero-badge { display: inline-flex; align-items: center; justify-content: center; min-width: 52px; height: 52px; padding: 0 8px; border-radius: 26px;
+    background: var(--accent); color: #fff; font-weight: 700; font-size: 15px; }
+  .hero h1 { margin: 6px 0 2px; font-size: 24px; line-height: 1.35; color: var(--brown); font-weight: 700; }
+  .hero-sub { margin: 0; color: var(--accent); font-size: 15px; font-weight: 700; }
+  .intro { color: var(--brown); font-size: 15px; margin: 0 0 8px; }
+  @media (max-width: 420px) {
+    .hero { flex-direction: column; text-align: center; gap: 12px; }
+    .hero-series { display: inline-block; }
+  }
 </style>
 </head>
 <body>
 <main>
-  <p class="series">トイプードルのムックと、後悔なく過ごすために</p>
-  <h1>愛犬のシニア期サイン チェック</h1>
-  <p class="lead">「年のせいかな」と思ったら。当てはまる様子をタップすると、動物病院で相談するときのメモができます。</p>
+  <header class="hero">
+    <div class="hero-face"><img src="mukku.png" alt="トイプードルのムックのイラスト"></div>
+    <div class="hero-text">
+      <p class="hero-series">トイプードルのムックと、後悔なく過ごすために</p>
+      <span class="hero-badge">サイン</span>
+      <h1>シニア期サイン チェック</h1>
+      <p class="hero-sub">「年のせいかな」と思ったら</p>
+    </div>
+  </header>
+  <p class="intro">当てはまる様子をタップすると、動物病院で相談するときのメモができます。</p>
 
   <div class="alert">
     急にぐったりしている、けいれんしている、息が苦しそう、ごはんも水もとらない、といったときは、このチェックをせずにすぐ動物病院へ電話してください。
