@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>愛犬のシニア期サイン チェック｜トイプードルのムック</title>
+<meta name="description" content="「年のせいかな」と思ったら。当てはまる様子をタップすると、動物病院で相談するときのメモができます。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f1e6; --card: #fffbf5; --brown: #78543c; --accent: #cd8c64;
+    --accent-d: #b06842; --pale: #f0e0ce; --gray: #aa9687; --soft: #fcecde;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Noto Sans JP", sans-serif; color: var(--brown); background: var(--bg); line-height: 1.7; }
+  main { max-width: 560px; margin: 24px auto; padding: 28px 22px; background: var(--card); border: 4px solid var(--pale); border-radius: 24px; }
+  .series { color: var(--accent); font-size: 13px; font-weight: 500; margin: 0; }
+  h1 { font-size: 23px; margin: 4px 0; }
+  .lead { color: var(--accent-d); font-size: 15px; margin: 0 0 8px; }
+  h2 { font-size: 17px; margin: 22px 0 8px; }
+  .item { display: flex; gap: 12px; align-items: flex-start; width: 100%; text-align: left; font-family: inherit; font-size: 16px; color: var(--brown);
+    background: #fff; border: 2px solid var(--pale); border-radius: 14px; padding: 12px 14px; margin-bottom: 8px; cursor: pointer; }
+  .item .box { flex: none; width: 26px; height: 26px; border: 3px solid var(--accent); border-radius: 7px; background: #fff; margin-top: 1px;
+    display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; }
+  .item.on { background: var(--soft); border-color: var(--accent); }
+  .item.on .box { background: var(--accent); }
+  .item.on .box::after { content: "✓"; }
+  .result { margin-top: 22px; padding: 18px; border-radius: 16px; background: #fff; border: 2px solid var(--pale); }
+  .result .count { font-size: 20px; font-weight: 700; margin: 0 0 6px; }
+  .memo { background: var(--soft); border-radius: 12px; padding: 14px; margin-top: 12px; font-size: 15px; }
+  .memo ul { margin: 6px 0 0; padding-left: 20px; }
+  .memo-fields label { display: block; font-size: 14px; font-weight: 700; margin: 10px 0 4px; }
+  .memo-fields input { width: 100%; font-family: inherit; font-size: 15px; padding: 10px; border: 2px solid var(--pale); border-radius: 10px; color: var(--brown); }
+  .btn { display: inline-block; margin-top: 12px; padding: 11px 18px; font-family: inherit; font-size: 15px; font-weight: 700; color: #fff; background: var(--brown);
+    border: none; border-radius: 999px; cursor: pointer; text-decoration: none; }
+  .btn.sub { background: #fff; color: var(--brown); border: 2px solid var(--pale); }
+  .copied { font-size: 13px; color: var(--accent-d); margin-left: 8px; }
+  .alert { background: #fde2e2; color: #8a2b2b; border-radius: 12px; padding: 12px 14px; font-size: 14px; margin-top: 18px; }
+  .caution { font-size: 13px; color: var(--accent-d); margin-top: 18px; }
+  .source { font-size: 12px; color: var(--gray); margin-top: 18px; border-top: 2px solid var(--pale); padding-top: 12px; }
+  .links { font-size: 14px; margin-top: 14px; }
+  .links a { color: var(--accent-d); }
+</style>
+</head>
+<body>
+<main>
+  <p class="series">トイプードルのムックと、後悔なく過ごすために</p>
+  <h1>愛犬のシニア期サイン チェック</h1>
+  <p class="lead">「年のせいかな」と思ったら。当てはまる様子をタップすると、動物病院で相談するときのメモができます。</p>
+
+  <div class="alert">
+    急にぐったりしている、けいれんしている、息が苦しそう、ごはんも水もとらない、といったときは、このチェックをせずにすぐ動物病院へ電話してください。
+  </div>
+
+  <h2>家の中のようす</h2>
+  <div id="groupHome"></div>
+  <h2>体のようす（10歳以上で増えやすいサイン）</h2>
+  <div id="groupBody"></div>
+
+  <div class="result" id="result"></div>
+
+  <p class="caution">※ 病気を見分けるためのチェックではありません。似た様子は、痛みやほかの病気でも出ることがあります。気になる様子が続くときは、写真や動画を撮って、かかりつけの動物病院で相談してください。<br>
+  ※ チェックした内容やメモは、どこにも送られず保存もされません。ページを閉じると消えます。</p>
+
+  <div class="source">
+    出典：2023 AAHA Senior Care Guidelines for Dogs and Cats（犬の認知機能のサインの分類 DISHAA）をもとに言いかえて作成、
+    Ozawa M ほか（2019）J Vet Med Sci 81(12)（東京大学、10歳以上の犬の体のサイン）
+  </div>
+  <div class="links">
+    作成：Moy（トイプードルのムックの飼い主）<br>
+    <a href="https://note.com/toypoo_mukku/n/n84d7fcba06c4" target="_blank" rel="noopener">くわしくは note の第3回（シニア期のサイン）へ</a><br>
+    <a href="https://www.threads.com/@toypoo_mukku" target="_blank" rel="noopener">Threads @toypoo_mukku</a>
+    <a href="https://okimukku.github.io/dog-age/" target="_blank" rel="noopener">人間年齢チェッカー</a>
+  </div>
+</main>
+
+<script>
+  var HOME = [
+    "壁や家具の角で、立ち止まって動けなくなる",
+    "あまえ方が変わった、呼んでも反応がうすい",
+    "昼によく眠り、夜に起きて落ち着かない",
+    "できていた場所で、トイレを失敗する",
+    "遊ばなくなった、同じところをうろうろ歩く",
+    "ひとりを嫌がる、ささいなことでおびえる"
+  ];
+  var BODY = [
+    "物にぶつかる、目が見えにくそう",
+    "においに気づきにくくなった",
+    "体がふるえる",
+    "歩くときにふらつく"
+  ];
+  var checked = {};
+
+  function makeGroup(id, items, prefix) {
+    var box = document.getElementById(id);
+    items.forEach(function (text, i) {
+      var key = prefix + i;
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "item";
+      b.setAttribute("aria-pressed", "false");
+      b.innerHTML = '<span class="box"></span><span></span>';
+      b.lastChild.textContent = text;
+      b.addEventListener("click", function () {
+        checked[key] = !checked[key];
+        b.classList.toggle("on", checked[key]);
+        b.setAttribute("aria-pressed", checked[key] ? "true" : "false");
+        render();
+      });
+      box.appendChild(b);
+    });
+  }
+  makeGroup("groupHome", HOME, "h");
+  makeGroup("groupBody", BODY, "b");
+
+  function selectedTexts() {
+    var list = [];
+    HOME.forEach(function (t, i) { if (checked["h" + i]) list.push(t); });
+    BODY.forEach(function (t, i) { if (checked["b" + i]) list.push(t); });
+    return list;
+  }
+
+  // メモ欄の入力は、表示を作り直しても消えないように覚えておく
+  var memoValues = { since: "", freq: "" };
+
+  function render() {
+    var list = selectedTexts();
+    var box = document.getElementById("result");
+    if (list.length === 0) {
+      box.innerHTML = '<p class="count">当てはまるものは、まだありません</p>' +
+        "<p>今の元気な様子を、ときどき写真や動画で残しておくのがおすすめです。あとで「前とくらべてどうか」を見るときに役立ちます。</p>";
+      return;
+    }
+    var items = list.map(function (t) { return "<li></li>"; }).join("");
+    box.innerHTML = '<p class="count">' + list.length + "つ当てはまりました</p>" +
+      "<p>いくつ当てはまったかより、「前とくらべて変わったか」「続いているか」が大事です。次に動物病院へ行くときに、このメモを見せて相談してみてください。</p>" +
+      '<div class="memo"><b>動物病院で相談したいこと</b><ul id="memoList">' + items + "</ul>" +
+      '<div class="memo-fields">' +
+      '<label for="since">いつごろから？</label><input id="since" placeholder="例：1か月前くらいから">' +
+      '<label for="freq">どのくらいの回数？</label><input id="freq" placeholder="例：週に2〜3回、夜に多い">' +
+      "</div></div>" +
+      '<button type="button" class="btn" id="copyBtn">メモをコピーする</button><span class="copied" id="copied"></span>';
+
+    var lis = document.querySelectorAll("#memoList li");
+    list.forEach(function (t, i) { lis[i].textContent = t; });
+
+    var since = document.getElementById("since");
+    var freq = document.getElementById("freq");
+    since.value = memoValues.since;
+    freq.value = memoValues.freq;
+    since.addEventListener("input", function () { memoValues.since = since.value; });
+    freq.addEventListener("input", function () { memoValues.freq = freq.value; });
+
+    document.getElementById("copyBtn").addEventListener("click", function () {
+      var text = "【動物病院で相談したいこと】\n" + list.map(function (t) { return "・" + t; }).join("\n") +
+        "\nいつごろから：" + (memoValues.since || "") + "\nどのくらいの回数：" + (memoValues.freq || "");
+      var done = function () { document.getElementById("copied").textContent = "コピーしました"; };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () {
+          document.getElementById("copied").textContent = "コピーできませんでした。画面のスクリーンショットをお使いください";
+        });
+      } else {
+        document.getElementById("copied").textContent = "コピーできませんでした。画面のスクリーンショットをお使いください";
+      }
+    });
+  }
+  render();
+</script>
+</body>
+</html>
